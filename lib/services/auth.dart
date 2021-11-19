@@ -25,7 +25,8 @@ class AuthService {
   }
 
   // sing with email and password
-  static Future signIn(String email, String password) async {
+  static Future signInWithEmailAndPassword(
+      String email, String password) async {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
@@ -38,11 +39,11 @@ class AuthService {
   }
 
   // register with email and password
-  static Future singup(String email, String password) async {
+  static Future registerWithEmailAndPassword(
+      String email, String password) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      print(UserCredential);
       AppUser user = AppUser(uid: result.user!.uid);
       return user;
     } catch (e) {
