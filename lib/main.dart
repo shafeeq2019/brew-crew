@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //make the AuthService().user accessable in all widgets under Wrapper
+
     return StreamProvider<AppUser>.value(
         initialData: AppUser(),
         value: AuthService().user,

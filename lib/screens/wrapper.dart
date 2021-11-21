@@ -1,5 +1,6 @@
 import 'package:brew_crew/models/appUser.dart';
 import 'package:brew_crew/screens/home/home.dart';
+import 'package:brew_crew/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'authenticate/authenticate.dart';
