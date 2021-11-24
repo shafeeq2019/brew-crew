@@ -2,6 +2,7 @@ import 'package:brew_crew/models/appUser.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
+import 'package:brew_crew/shared/submit_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -75,29 +76,49 @@ class _SignInState extends State<SignIn> {
                         SizedBox(
                           height: 20,
                         ),
-                        RaisedButton(
-                            onPressed: () async {
-                              if (_formkey.currentState!.validate()) {
+                        // RaisedButton(
+                        //     onPressed: () async {
+                        //       if (_formkey.currentState!.validate()) {
+                        //         setState(() {
+                        //           loading = true;
+                        //         });
+                        //         dynamic result = await AuthService
+                        //             .signInWithEmailAndPassword(
+                        //                 email, password);
+                        //         if (result == null) {
+                        //           setState(() {
+                        //             error =
+                        //                 'could not sign in with those credentials';
+                        //             loading = false;
+                        //           });
+                        //         }
+                        //       }
+                        //     },
+                        //     color: Colors.pink[400],
+                        //     child: Text(
+                        //       'Sign in',
+                        //       style: TextStyle(color: Colors.white),
+                        //     )),
+                        SubmitButton(
+                          buttonText: "Sing in",
+                          onPressed: () async {
+                            if (_formkey.currentState!.validate()) {
+                              setState(() {
+                                loading = true;
+                              });
+                              dynamic result =
+                                  await AuthService.signInWithEmailAndPassword(
+                                      email, password);
+                              if (result == null) {
                                 setState(() {
-                                  loading = true;
+                                  error =
+                                      'could not sign in with those credentials';
+                                  loading = false;
                                 });
-                                dynamic result = await AuthService
-                                    .signInWithEmailAndPassword(
-                                        email, password);
-                                if (result == null) {
-                                  setState(() {
-                                    error =
-                                        'could not sign in with those credentials';
-                                    loading = false;
-                                  });
-                                }
                               }
-                            },
-                            color: Colors.pink[400],
-                            child: Text(
-                              'Sign in',
-                              style: TextStyle(color: Colors.white),
-                            )),
+                            }
+                          },
+                        ),
                         SizedBox(
                           height: 5,
                         ),
