@@ -76,29 +76,6 @@ class _SignInState extends State<SignIn> {
                         SizedBox(
                           height: 20,
                         ),
-                        // RaisedButton(
-                        //     onPressed: () async {
-                        //       if (_formkey.currentState!.validate()) {
-                        //         setState(() {
-                        //           loading = true;
-                        //         });
-                        //         dynamic result = await AuthService
-                        //             .signInWithEmailAndPassword(
-                        //                 email, password);
-                        //         if (result == null) {
-                        //           setState(() {
-                        //             error =
-                        //                 'could not sign in with those credentials';
-                        //             loading = false;
-                        //           });
-                        //         }
-                        //       }
-                        //     },
-                        //     color: Colors.pink[400],
-                        //     child: Text(
-                        //       'Sign in',
-                        //       style: TextStyle(color: Colors.white),
-                        //     )),
                         SubmitButton(
                           buttonText: "Sing in",
                           onPressed: () async {
