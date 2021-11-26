@@ -12,14 +12,17 @@ class BrewTile extends StatelessWidget {
       padding: EdgeInsets.only(top: 8),
       child: ListTile(
         leading: CircleAvatar(
+          backgroundImage: AssetImage('assets/coffee_icon.png'),
           radius: 25,
           backgroundColor: Colors.brown[brew.strength ?? 100],
         ),
         title: Text('${brew.name}'),
         subtitle: Text('Takes ${brew.sugars}  sugar(s)'),
-        trailing: Icon(Icons.more_vert),
         onTap: () {
-          print(this.brew.sugars);
+          print(brew.sugars);
+        },
+        onLongPress: () {
+          print("ok");
         },
       ),
     );
