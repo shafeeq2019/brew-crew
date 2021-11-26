@@ -8,7 +8,7 @@ class DatabaseService {
   final String? uid;
   DatabaseService({this.uid});
 
-  Future updateUserData(String sugar, String name, int strenght) async {
+  Future updateUserData(String? sugar, String? name, int? strenght) async {
     return await brewCollection
         .doc(uid)
         .set({'sugars': sugar, 'name': name, 'strenght': strenght});
@@ -39,7 +39,7 @@ class DatabaseService {
   // userData from DocumentSnapshot
   _userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
-      uid: snapshot.get('uid') ?? '',
+      uid: uid,
       name: snapshot.get('name') ?? '',
       sugars: snapshot.get('sugars') ?? '',
       strength: snapshot.get('strenght') ?? '',
